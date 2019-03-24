@@ -39,16 +39,16 @@ void process_image_callback(const sensor_msgs::Image img)
 	float ang_z = 0;
 	float lin_x = 0;
 	if(is_white_ball) {
-		if(float(i) / img.width <= 1.0/3) {
+		if(i % img.width <= img.width/3) {
 			ang_z = 0.1;
 		}
-		else if(float(i) / img.width > 2.0/3) {
+		else if(i % img.width > 2 * img.width/3) {
 			ang_z = -0.1;
 		}
 		else {
 			ang_z = 0;
 		}
-		lin_x = 0.3;
+		lin_x = 0.2;
 	}
 	drive_robot(lin_x, ang_z);
 }

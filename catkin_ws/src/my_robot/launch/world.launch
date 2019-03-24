@@ -11,7 +11,8 @@
 
   <!-- Launch other relevant files-->
   <include file="$(find my_robot)/launch/robot_description.launch"/>
-	<include file="$(find ball_chaser)/launch/ball_chaser.launch"/>
+  <!--<include file="$(find ball_chaser)/launch/ball_chaser.launch"/>-->
+
   <!-- World File -->
   <arg name="world_file" default="$(find my_robot)/worlds/steve.world"/>
 
@@ -23,8 +24,8 @@
     <arg name="world_name" value="$(arg world_file)"/>
   </include>
 
-  <!-- Find my robot Description-->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'"/>
+  <!-- Find my robot Description--> 
+  <param name="robot_description" command="$(find xacro)/xacro  --inorder '$(find my_robot)/urdf/my_robot.xacro'"/>
 
   <!-- Spawn My Robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
